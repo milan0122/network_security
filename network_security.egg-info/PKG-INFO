@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: network_security
+Version: 0.0.1
+Home-page: https://github.com/milan0122/network_security
+Author: milan0122
+Author-email: dangi.milan46@gmail.com
+Requires-Dist: python-dotenv
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: pymongo
+Requires-Dist: certifi
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires-dist
