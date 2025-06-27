@@ -1,2 +1,5 @@
 sec_venv
 .env
+logs/
+.DS_Store
+__pycache__/
