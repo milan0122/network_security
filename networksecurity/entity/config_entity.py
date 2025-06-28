@@ -15,13 +15,13 @@ class DataIngestionConfig:
         self.data_ingestion_dir : str = os.path.join(
             training_pipeline_config.artifact_dir,training_pipeline.Data_Ingestion_Dir_Name
         )
-        self.feature_store_file_path : str = os.path(
-            self.data_ingestion_dir,training_pipeline.Data_Ingestion_Feature_Store_Dir
+        self.feature_store_file_path : str = os.path.join(
+            self.data_ingestion_dir,training_pipeline.Data_Ingestion_Feature_Store_Dir,training_pipeline.FILE_NAME
         )
-        self.training_file_path :str = os.path(
+        self.training_file_path :str = os.path.join(
             self.data_ingestion_dir,training_pipeline.Data_Ingestion_Ingested_Dir,training_pipeline.TRAIN_FILE_NAME
         )
-        self.testing_file_path :str = os.path(
+        self.testing_file_path :str = os.path.join(
             self.data_ingestion_dir,training_pipeline.Data_Ingestion_Ingested_Dir,training_pipeline.TEST_FILE_NAME
         )
         self.train_test_split_ratio :float = training_pipeline.Data_Ingestion_Train_Test_split_Ratio
