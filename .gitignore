@@ -5,4 +5,5 @@ logs/
 __pycache__/
 .github
 Artifacts
+practice.py
 

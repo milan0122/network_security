@@ -15,6 +15,8 @@ TEST_FILE_NAME : str = "test.csv"
 
 PREPROCESSING_OBJECT_FILE_NAME:str = "preprocessing.pkl"
 SCHEMA_FILE_PATH :str = os.path.join("data_schema","schema.yaml")
+SAVED_MODEL_DIR = os.path.join("saved_models")
+MODEL_FILE_NAME = "model.pkl"
 
 """
 Data Ingestion related constant start with Data_Ingestion var
@@ -47,3 +49,13 @@ DATA_TRANSFORMATION_IMPUTER_PARAMS:dict = {
 }
 DATA_TRANSFORMATION_TRAIN_FILE_PATH: str = "train.npy"
 DATA_TRANSFORMATION_TEST_FILE_PATH: str = "test.npy"
+
+"""
+Model Trainer related constants
+"""
+MODEL_TRINER_DIR_NAME:str = "model_trainer"
+MODEL_TRINER_TRAINED_DIR_NAME:str = "trained_model"
+MODEL_TRINER_TRAINED_FILE_NAME:str = "network_model.pkl"
+MODEL_TRAINER_EXCEPTED_SCORE:float = 0.7
+
+MODEL_TRAINER_OVER_FITING_UNDER_FITING_THRESHOLD:float = 0.05
