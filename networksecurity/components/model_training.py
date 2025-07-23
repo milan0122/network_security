@@ -19,6 +19,8 @@ from sklearn.ensemble import (
 )
 from sklearn.model_selection import GridSearchCV
 import mlflow
+import dagshub
+dagshub.init(repo_owner='milan0122', repo_name='network_security', mlflow=True)
 
 class ModelTrainer:
     def __init__(self,model_trainer_config:ModelTrainerConfig,data_transformation_artifact:Data_Transformation_Artifact):
@@ -99,6 +101,8 @@ class ModelTrainer:
         Network_Model = NetworkModel(preprocessor=preprocessor,model=best_model)
         # saving the object
         save_object(self.model_trainer_config.trained_model_file_path,obj=Network_Model)
+        #saving the the best model into final_model
+        save_object("final_model/model.pkl",best_model)
 
         # Model trainer Artifact
         model_trainer_artifact=ModelTrainingArtifact(
