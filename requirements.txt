@@ -11,7 +11,4 @@ pyaml
 mlflow== 2.22.1
 fastapi 
 uvicorn
-
-
-
 #-e . 
