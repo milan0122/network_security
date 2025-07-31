@@ -71,6 +71,7 @@ class TrainingPipeline:
             return model_trainer_artifact
         except Exception as e:
             raise CustomException(e,sys)
+        
     # local artifact pushing to s3 bucket
     def sync_artifact_dir_to_s3(self):
         try:
