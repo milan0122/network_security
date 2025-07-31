@@ -17,7 +17,7 @@ PREPROCESSING_OBJECT_FILE_NAME:str = "preprocessing.pkl"
 SCHEMA_FILE_PATH :str = os.path.join("data_schema","schema.yaml")
 SAVED_MODEL_DIR = os.path.join("saved_models")
 MODEL_FILE_NAME = "model.pkl"
-
+TRAINING_BUCKET_NAME = "milannetworksecurity"
 """
 Data Ingestion related constant start with Data_Ingestion var
 """
