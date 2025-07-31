@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM python:3.11-slim-buster
 WORKDIR /app
 COPY . /app
 
@@ -9,5 +9,5 @@ RUN apt-get update -y && \
     pip install -r requirements.txt && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /root/.cache
-    
+
 CMD ["python3","app.py"]
