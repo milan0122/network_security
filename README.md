@@ -1,23 +1,23 @@
-# 🔐 End-to-End Network Security Project
+# End-to-End Network Security Project
 
-## 📌 Overview
+## Overview
 
 This project is an end-to-end solution for detecting malicious network behaviors using machine learning techniques. The project incorporates **data ingestion**, **data validation**, **model training**, and **deployment** via a REST API. It uses multiple **classification algorithms** (Random Forest, Decision Tree, Gradient Boosting, Logistic Regression, and AdaBoost), and it automatically selects the best model after hyperparameter tuning. The solution is fully integrated with **CI/CD pipelines**, **Docker**, **AWS EC2**, and **S3** for efficient deployment and storage.
 
-## 🧾 Table of Contents
+## Table of Contents
 
-- [🚀 Features](#-features)
-- [📁 Project Structure](#-project-structure)
-- [🔧 Technologies Used](#-technologies-used)
-- [⚙️ Setup & Installation](#️-setup--installation)
-- [🏗️ ML Pipeline Stages](#-ml-pipeline-stages)
-- [⚖️ Model Performance](#-model-performance)
-- [🌐 FastAPI Service](#-fastapi-service)
-- [⚙️ CI/CD with GitHub Actions & AWS EC2](#️-cicd-with-github-actions--aws-ec2)
-- [📂 Artifacts & S3 Integration](#-artifacts--s3-integration)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Technologies Used](#-technologies-used)
+- [Setup & Installation](#️-setup--installation)
+- [ML Pipeline Stages](#-ml-pipeline-stages)
+- [Model Performance](#-model-performance)
+- [FastAPI Service](#-fastapi-service)
+- [CI/CD with GitHub Actions & AWS EC2](#️-cicd-with-github-actions--aws-ec2)
+- [Artifacts & S3 Integration](#-artifacts--s3-integration)
 ---
 
-## 🚀 Features
+##  Features
 
 - Data ingestion from **MongoDB Atlas**.
 - Data validation and transformation with **KNN Imputer**.
@@ -31,41 +31,51 @@ This project is an end-to-end solution for detecting malicious network behaviors
 
 ---
 
-## 📁 Project Structure
-network_security_project/
-├── .env                             
-├── .gitignore                       
-├── README.md                    
-├── app.py                          
-├── setup.py                        
-├── dockerfile                      
-├── push_data.py                    
-├── logs/                            
-├── final_model/                     
-├── data_schema/
-│   └── schema.yaml                  
-├── network_data/                   
-├── templates/
-│   └── index.html                  
-├── networksecurity/               
-│   ├── cloud/                      
-│   ├── components/                 
-│   │   ├── data_ingestion.py
-│   │   ├── data_transformation.py
-│   │   ├── data_validation.py
-│   │   └── model_training.py
-│   ├── constants/                  
-│   ├── entity/                     
-│   ├── Exception_handling/        
-│   ├── Logging/                    
-│   ├── pipeline/
-│   │   └── training_pipeline.py    
-│   └── utils/                       
-
-
+## Project Structure
+network_security_project
+.
+├── Artifacts
+├── Network_Data
+│   └── phisingData.csv
+├── README.md
+├── app.py
+├── data_schema
+│   └── schema.yaml
+├── dockerfile
+├── final_model
+│   ├── model.pkl
+│   └── preprocessor.pkl
+├── networksecurity
+│   ├── Exception_handling
+│   ├── Logging
+│   ├── __init__.py
+│   ├── cloud
+│   ├── components
+│   │   ├── __init__.py
+│   │   ├── data_ingestion.py
+│   │   ├── data_transformation.py
+│   │   ├── data_validation.py
+│   │   └── model_training.py
+│   ├── constants
+│   ├── entity
+│   │   ├── artifact_entity.py
+│   │   └── config_entity.py
+│   ├── pipeline
+│   │   └── training_pipeline.py
+│   └── utils
+│       ├── ml_utils
+│       └── utility.py
+├── notebooks
+├── push_data.py
+├── requirements.txt
+├── setup.py
+├── templates
+│   └── index.html
+└── valid_data
+    └── test.csv             
 ---
 
-## 🔧 Technologies Used
+##  Technologies Used
 
 - **Python 3.10+**
 - **FastAPI** for API deployment
@@ -118,9 +128,9 @@ Quick summary of bestmodel performance
 |Test|0.973|0.967|0.979|
 ---
 ## 🌐 FastAPI Service
-You can serve predictions using FastAPI:
+    You can serve predictions using FastAPI:
     ```bash
-uvicorn app:app --host 0.0.0.0 --port 8080
+        uvicorn app:app --host 0.0.0.0 --port 8080
 ---
 ## CI/CD with Github Actions & AWS EC2
 ### Continuous Integration (CI)
