@@ -33,35 +33,34 @@ This project is an end-to-end solution for detecting malicious network behaviors
 
 ## 📁 Project Structure
 network_security_project/
-├── .env                             # Environment variables for local dev
-├── .gitignore                       # Git ignored files
-├── README.md                        # Project documentation
-├── app.py                           # FastAPI application entry point
-├── setup.py                         # Package installation config
-├── dockerfile                       # Docker image instructions
-├── push_data.py                     # Script to push data to MongoDB
-├── logs/                            # Log files for debugging and monitoring
-├── final_model/                     # Saved best model after training
+├── .env                             
+├── .gitignore                       
+├── README.md                    
+├── app.py                          
+├── setup.py                        
+├── dockerfile                      
+├── push_data.py                    
+├── logs/                            
+├── final_model/                     
 ├── data_schema/
-│   └── schema.yaml                  # Schema definition for input data
-├── network_data/                    # Raw or ingested data
+│   └── schema.yaml                  
+├── network_data/                   
 ├── templates/
-│   └── index.html                   # Frontend template for FastAPI
-├── networksecurity/                # Main project package
-│   ├── cloud/                       # Cloud-related utilities (e.g., S3, ECR)
-│   ├── components/                  # Core pipeline components
+│   └── index.html                  
+├── networksecurity/               
+│   ├── cloud/                      
+│   ├── components/                 
 │   │   ├── data_ingestion.py
 │   │   ├── data_transformation.py
 │   │   ├── data_validation.py
 │   │   └── model_training.py
-│   ├── constants/                   # Global constant values
-│   ├── entity/                      # Data classes for artifacts & configs
-│   ├── Exception_handling/         # Custom exception classes
-│   ├── Logging/                     # Centralized logging utility
+│   ├── constants/                  
+│   ├── entity/                     
+│   ├── Exception_handling/        
+│   ├── Logging/                    
 │   ├── pipeline/
-│   │   └── training_pipeline.py     # Script to link all ML components
-│   └── utils/                       # Helper and utility functions
-
+│   │   └── training_pipeline.py    
+│   └── utils/                       
 
 
 ---
@@ -88,26 +87,27 @@ network_security_project/
    cd network_security
 
 2. **Create a virtual environment and activate it**
+    ```bash
     python -m venv venv
     source venv/bin/activate   
 3. **Install dependencies**
+    ```bash
     pip install -r requirements.txt
 
 4. **Configure MongoDB in .env and Setup github secrets:**
-    MONGO_URI=mongodb+srv://<your-atlas-uri>
-    AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
-    AWS_REGION = your region
-    AWS_ECR_LOGIN_URI = Create ECR repo and you will get and copy URI
-    ECR_REPOSITORY_NAME = networkssecurity
+    - MONGO_URI=mongodb+srv://<your-atlas-uri>
+    - AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
+    - AWS_REGION = your region
+    - AWS_ECR_LOGIN_URI = Create ECR repo and you will get and copy URI
+    - ECR_REPOSITORY_NAME = networkssecurity
 ---
 ## ML Pipeline Stages
 The ML pipeline consists of the following stages, all implemented as modular components:
 - **Data Ingestion:** Data is ingested from MongoDB Atlas and saved locally for processing.
 - **Data Validation**:Ensures data integrity and checks for inconsistencies.
 Performs drift detection to spot any issues in the dataset over time.
-- **Data Transformation**:Applies KNN Imputer to handle missing values.
-Transforms data into a format suitable for model training.
+- **Data Transformation**:Applies KNN Imputer to handle missing values.Transforms data into a format suitable for model training.
 - **Model Training and Evaluation**:Trains multiple models using different classifiers: Random Forest, Decision Tree, Gradient Boosting, Logistic Regression, and AdaBoost. Hyperparameter tuning is performed using cross-validation to find the best model.
 ---
 ## Model Performance
@@ -119,7 +119,7 @@ Quick summary of bestmodel performance
 ---
 ## 🌐 FastAPI Service
 You can serve predictions using FastAPI:
-bash```
+    ```bash
 uvicorn app:app --host 0.0.0.0 --port 8080
 ---
 ## CI/CD with Github Actions & AWS EC2
@@ -142,6 +142,7 @@ Files such as model.pkl, logs/, and evaluation reports are uploaded to your conf
 
 ---
 Note: Some important command for Docker Setup In EC2 commands to be Executed
+```bash
 sudo apt-get update -y # optional 
 sudo apt-get upgrade #required
 curl -fsSL https://get.docker.com -o get-docker.sh
